@@ -132,6 +132,41 @@ public class CleverTapModule extends ReactContextBaseJavaModule implements SyncL
         }
     }
 
+    @ReactMethod
+    public void createNotificationChannel(String channelId, CharSequence channelName, String channelDescription, int importance, boolean showBadge){
+        CleverTapAPI clevertap = getCleverTapAPI();
+        if (clevertap == null || channelId == null || channelName == null || channelDescription == null) return;
+        clevertap.createNotificationChannel(this.context,channelId,channelName,channelDescription,importance,showBadge);
+    }
+
+    @ReactMethod
+    public void createNotificationChannelwithGroupId(String channelId, CharSequence channelName, String channelDescription, int importance, String groupId, boolean showBadge){
+        CleverTapAPI clevertap = getCleverTapAPI();
+        if (clevertap == null || channelId == null || channelName == null || channelDescription == null || groupId == null) return;
+        clevertap.createNotificationChannel(this.context,channelId,channelName,channelDescription,importance,groupId,showBadge);
+    }
+
+    @ReactMethod
+    public void createNotificationChannelGroup(String groupId, CharSequence groupName){
+        CleverTapAPI clevertap = getCleverTapAPI();
+        if (clevertap == null || groupId == null || groupName == null) return;
+        clevertap.createNotificationChannelGroup(this.context,groupId,groupName);
+    }
+
+    @ReactMethod
+    public void deleteNotificationChannel(String channelId){
+        CleverTapAPI clevertap = getCleverTapAPI();
+        if (clevertap == null || channelId == null) return;
+        clevertap.deleteNotificationChannel(this.context,channelId);
+    }
+
+    @ReactMethod
+    public void deleteNotificationChannelGroup(String groupId){
+        CleverTapAPI clevertap = getCleverTapAPI();
+        if (clevertap == null || groupId == null) return;
+        clevertap.deleteNotificationChannelGroup(this.context,groupId);
+    }
+
     // Personalization
 
     @ReactMethod
