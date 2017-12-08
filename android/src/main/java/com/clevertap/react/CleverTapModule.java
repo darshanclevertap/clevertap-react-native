@@ -137,6 +137,7 @@ public class CleverTapModule extends ReactContextBaseJavaModule implements SyncL
         CleverTapAPI clevertap = getCleverTapAPI();
         if (clevertap == null || channelId == null || channelName == null || channelDescription == null) return;
         clevertap.createNotificationChannel(this.context,channelId,channelName,channelDescription,importance,showBadge);
+        Log.i(TAG, "Notification Channel "+ channelName +" created");
     }
 
     @ReactMethod
@@ -144,6 +145,7 @@ public class CleverTapModule extends ReactContextBaseJavaModule implements SyncL
         CleverTapAPI clevertap = getCleverTapAPI();
         if (clevertap == null || channelId == null || channelName == null || channelDescription == null || groupId == null) return;
         clevertap.createNotificationChannel(this.context,channelId,channelName,channelDescription,importance,groupId,showBadge);
+        Log.i(TAG, "Notification Channel "+ channelName +"with Group Id "+ groupId + " created");
     }
 
     @ReactMethod
@@ -151,6 +153,7 @@ public class CleverTapModule extends ReactContextBaseJavaModule implements SyncL
         CleverTapAPI clevertap = getCleverTapAPI();
         if (clevertap == null || groupId == null || groupName == null) return;
         clevertap.createNotificationChannelGroup(this.context,groupId,groupName);
+        Log.i(TAG, "Notification Channel Group"+ groupName +" created");
     }
 
     @ReactMethod
@@ -158,6 +161,7 @@ public class CleverTapModule extends ReactContextBaseJavaModule implements SyncL
         CleverTapAPI clevertap = getCleverTapAPI();
         if (clevertap == null || channelId == null) return;
         clevertap.deleteNotificationChannel(this.context,channelId);
+        Log.i(TAG, "Notification Channel Id"+ channelId +" deleted");
     }
 
     @ReactMethod
@@ -165,6 +169,7 @@ public class CleverTapModule extends ReactContextBaseJavaModule implements SyncL
         CleverTapAPI clevertap = getCleverTapAPI();
         if (clevertap == null || groupId == null) return;
         clevertap.deleteNotificationChannelGroup(this.context,groupId);
+        Log.(TAG, "Notification Channel Group Id"+ groupId +" deleted");
     }
 
     // Personalization
